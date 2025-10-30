@@ -1,28 +1,19 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
+//ex1
 // void main() {
 //   runApp(
 //     MaterialApp(
 //       home: Scaffold(
-//         appBar: AppBar(title: Text("HELLO")),
 //         body: Center(
-//           child: Column(
-//             children: [
-//               Container(
-//                 width: 200,
-//                 height: 200,
-//                 color: Colors.amber,
-//                 child: const Center(
-//                   child: Text(
-//                     'HI',
-//                     style: TextStyle(
-//                       fontSize: 50,
-//                       color: Color.fromARGB(255, 52, 7, 255),
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ],
+//           child: Text(
+//             "Hello my name is generic guy 1!",
+//             style: TextStyle(
+//               decoration: TextDecoration.none,
+//               color: Colors.amber,
+//             ),
 //           ),
 //         ),
 //       ),
@@ -30,91 +21,35 @@ import 'package:flutter/material.dart';
 //   );
 // }
 
-class GradientButton extends StatelessWidget {
-  const GradientButton({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(40),
-      decoration: BoxDecoration(
-        // color: const Color(0xFF2196F3),
-        gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: <Color>[
-            const Color.fromARGB(255, 180, 231, 255),
-            const Color.fromARGB(255, 2, 83, 149),
-          ],
-        ),
-        borderRadius: BorderRadius.all(Radius.circular(30)),
-      ),
-      child: Center(
-        child: Text(
-          "Hello",
-          style: TextStyle(
-            decoration: TextDecoration.none,
-            color: Colors.white,
-            fontSize: 35,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-void main() {
-  runApp(
-    MaterialApp(
-      home: Column(
-        children: [
-          GradientButton(),
-          GradientButton(),
-          GradientButton(),
-          GradientButton(),
-          GradientButton()
-        ],
-      ),
-    ),
-  );
-}
-
+//ex2
 // void main() {
-//   // runApp(const MyApp());
 //   runApp(
 //     MaterialApp(
-//       title: 'My app',
-//       home: Scaffold(
-//         appBar: AppBar(
-//           backgroundColor: Color.fromARGB(123, 0, 78, 0),
-//           title: Text('Hello poy poy'),
+//       home: Container(
+//         padding: EdgeInsets.all(40),
+//         margin: EdgeInsets.all(50),
+//         color: Colors.blue[300],
+//         child: Container(
+//           decoration: BoxDecoration(
+//             color: Colors.blue[600],
+//             borderRadius: BorderRadius.all(Radius.circular(20)),
+//           ),
+//           child: Center(
+//             child: Text(
+//               "hello",
+//               style: TextStyle(
+//                 decoration: TextDecoration.none,
+//                 color: Colors.black,
+//               ),
+//             ),
+//           ),
 //         ),
-//         body: const Center(
-//           child: Text('ehehehe'),
-//         ),
-//       )
+//       ),
 //     ),
 //   );
 // }
 
-// void main() {
-//   runApp(MaterialApp(
-//     home: Container(
-//       color: Colors.lightBlue,
-//       padding: EdgeInsets.all(40),
-//       margin: EdgeInsets.all(50),
-//       child: Container(
-//         decoration: BoxDecoration(
-//           color: Colors.blue,
-//           borderRadius: BorderRadius.all(Radius.circular(10))
-//         ),
-//         child: Center(
-//           child: Text("CADT STUDENTS", style: TextStyle(color: Colors.white, decoration: TextDecoration.none))),
-//         ),
-//       ),
-//     )
-//   );
-// }
-
+// ex3
 // void main() {
 //   runApp(
 //     MaterialApp(
@@ -187,3 +122,110 @@ void main() {
 //     ),
 //   );
 // }
+
+//ex4
+// class CustomCard extends StatelessWidget {
+//   final String customText;
+  // final Color gradientStart;
+  // final Color gradientEnd;
+
+//   const CustomCard ({required this.customText, super.key, required this.gradientStart, Color? gradientEnd}) : gradientEnd = gradientEnd ?? gradientStart;
+
+//   @override 
+//   Widget build(BuildContext context) {
+//     return
+//       Container(
+//               margin: EdgeInsets.symmetric(vertical: 20),
+//               decoration: BoxDecoration(
+//                 gradient: LinearGradient(
+//                   begin: Alignment.centerLeft,
+//                   end: Alignment.centerRight,
+//                   colors: <Color> [
+//                     gradientStart,
+//                     gradientEnd
+//                   ]
+//                 ),
+//                 borderRadius: BorderRadius.all(Radius.circular(50)),
+//               ),
+//               child: Center(
+//                 child: Text(
+//                   customText,
+//                   style: TextStyle(
+//                     color: Colors.white,
+//                     decoration: TextDecoration.none,
+//                   ),
+//                 ),
+//               ),
+//             );
+//   }
+// }
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       home: Container(
+//         color: Colors.grey,
+//         padding: EdgeInsets.all(40),
+//         margin: EdgeInsets.all(50),
+//         child: Column(
+//           children: [
+//             CustomCard(customText: "OOP", gradientStart: Colors.blue[100]!),
+//             CustomCard(customText: "DART", gradientStart: Colors.blue[300]!),
+//             CustomCard(customText: "FLUTTER", gradientStart: Colors.blue[300]!, gradientEnd: Colors.blue[600]!,)
+//           ],
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+//stateless widget
+class GradientButton extends StatelessWidget {
+  final String customText;
+  final Color gradientStart;
+  final Color gradientEnd;
+
+  const GradientButton({required this.customText, super.key, required this.gradientStart, Color? gradientEnd}): gradientEnd = gradientEnd ?? gradientStart;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.all(40),
+      decoration: BoxDecoration(
+        // color: const Color(0xFF2196F3),
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: <Color>[
+            gradientStart,
+            gradientEnd,
+          ],
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(30)),
+      ),
+      child: Center(
+        child: Text(
+          customText,
+          style: TextStyle(
+            decoration: TextDecoration.none,
+            color: Colors.white,
+            fontSize: 35,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: Column(
+        children: [
+          GradientButton(customText: "Hello 1", gradientStart: Colors.red, gradientEnd: Colors.green),
+          GradientButton(customText: "Hello 2", gradientStart: Colors.green, gradientEnd: Colors.blue),
+          GradientButton(customText: "Hello 3", gradientStart: Colors.blue, gradientEnd: Colors.red)
+        ],
+      ),
+    ),
+  );
+}
